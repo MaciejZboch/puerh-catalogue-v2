@@ -1,0 +1,14 @@
+{
+  "name": "puerh-v2",
+  "version": "1.0.0",
+  "description": "a website about tea",
+  "main": "index.js",
+  "scripts": {
+    "test": "console.log(\"hello world\")"
+  },
+  "author": "maciejzboch",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
