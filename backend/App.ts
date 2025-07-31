@@ -20,13 +20,16 @@ mongoose
 
   //Session setup
 app.use(session({
-secret: 'c134cY87K43o',
-store: MongoStore.create({ 
-  mongoUrl: dbUrl,
-  touchAfter: 24 * 60 * 60,
-crypto: {
-    secret: 'c134cY87K43o',
+  secret: 'c134cY87K43o',
+  store: MongoStore.create({ 
+    mongoUrl: dbUrl,
+    touchAfter: 24 * 60 * 60,
+  crypto: {
+    secret: 'c134cY87K43o'
   }
+})
+.on("error", function (e) {
+  console.log("session store error!", e);
 })
 }));
 
