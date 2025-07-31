@@ -2,7 +2,7 @@ import express, {Request, Response} from 'express'
 import mongoose from 'mongoose';
 import session from 'express-session';
 import MongoStore from 'connect-mongo'
-
+import helmet from 'helmet';
 
 const app = express();
 
@@ -32,6 +32,7 @@ app.use(session({
   console.log("session store error!", e);
 })
 }));
+app.use(helmet());
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World')
