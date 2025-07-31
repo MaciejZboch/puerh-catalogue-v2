@@ -1,10 +1,15 @@
+//Dependency imports
 import express, {Request, Response} from 'express'
 import mongoose from 'mongoose';
 import session from 'express-session';
 import MongoStore from 'connect-mongo'
 import helmet from 'helmet';
-
+import passport from 'passport';
+const LocalStrategy = require("passport-local");
 const app = express();
+
+//Other imports
+import User from './models/user';
 
 //MongoDB setup
 const dbUrl = 'mongodb://localhost:27017/test';
@@ -33,6 +38,13 @@ app.use(session({
 })
 }));
 app.use(helmet());
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World')
