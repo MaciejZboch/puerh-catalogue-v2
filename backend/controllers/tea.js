@@ -1,13 +1,13 @@
-const Tea = require("../models/tea");
-const Vendor = require("../models/vendor");
-const Producer = require("../models/producer");
-const User = require("../models/user");
-const Review = require("../models/review");
-const Activity = require("../models/activity");
+import Tea from '../models/tea';
+import Vendor from "../models/vendor";
+import Producer from "../models/producer";
+import User from "../models/user";
+import Review from "../models/review";
+import Activity from "../models/activity";
+import {cloudinary} from"../cloudinary";
+import checkTeaLength from "../utilities/checkTeaLength";
+import mongoose from "mongoose";
 const currentYear = new Date().getFullYear();
-const { cloudinary } = require("../cloudinary");
-const checkTeaLength = require("../utilities/checkTeaLength");
-const mongoose = require("mongoose");
 
 //index
 module.exports.index = async (req, res) => {

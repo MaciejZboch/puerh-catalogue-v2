@@ -27,7 +27,7 @@ module.exports.new = async (req: Request, res: Response) => {
   res.redirect(`/tea/${tea._id}`);
 };
 
-module.exports.delete = async (req, res) => {
+module.exports.delete = async (req: Request, res: Response) => {
   await Review.findByIdAndDelete(req.params.reviewId);
   req.flash("success", "Succesfully deleted a review!");
   res.redirect(`/tea/${req.params.id}`);

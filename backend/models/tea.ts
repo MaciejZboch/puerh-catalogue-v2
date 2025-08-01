@@ -84,4 +84,5 @@ TeaSchema.index({
 TeaSchema.set("toObject", { virtuals: true });
 TeaSchema.set("toJSON", { virtuals: true });
 
-module.exports = mongoose.model("Tea", TeaSchema);
+const Tea = mongoose.model("Tea", TeaSchema);
+export default Tea;

@@ -1,5 +1,5 @@
-const User = require("../models/user");
-const passport = require("passport");
+import User  from "../models/user";
+import passport from "passport";
 module.exports.registerForm = (req, res) => {
   const pageTitle = "Register";
   res.render("users/register", { pageTitle });
