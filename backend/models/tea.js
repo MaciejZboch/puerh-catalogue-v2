@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
-const ImageSchema = require("./image");
+import { ImageSchema } from "./image";
 
 const TeaSchema = new Schema({
   name: String,

@@ -10,6 +10,7 @@ const app = express();
 
 //Other imports
 import User from './models/user';
+import { IUser } from './models/user';
 
 //MongoDB setup
 const dbUrl = 'mongodb://localhost:27017/test';
@@ -43,8 +44,18 @@ app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.serializeUser<IUser>((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser(async (id: string, done) => {
+  try {
+    const user = await User.findById(id);
+    done(null, user);
+  } catch (err) {
+    done(err);
+  }
+});
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World')
