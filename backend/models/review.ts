@@ -1,4 +1,4 @@
-const { number } = require("joi");
+import { number } from "joi";
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
@@ -15,4 +15,5 @@ const reviewSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("Review", reviewSchema);
+const Review = mongoose.model("Review", reviewSchema);
+export default Review;
