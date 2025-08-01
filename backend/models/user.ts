@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import passportLocalMongoose from "passport-local-mongoose";
-import { ImageSchema } from "./image";
+import ImageSchema from "./image";
 import { Document, Model, PassportLocalModel, PassportLocalDocument } from 'mongoose';
 
 
@@ -11,7 +11,6 @@ export interface IUser extends PassportLocalDocument {
   moderator?: boolean;
   image?: any;
   following: mongoose.Types.ObjectId[];
-  // Add other fields from your schema
 }
 
 interface IUserModel extends PassportLocalModel<IUser> {}
