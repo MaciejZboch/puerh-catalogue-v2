@@ -8,4 +8,5 @@ const activitySchema = new Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("Activity", activitySchema);
+const Activity = mongoose.model("Activity", activitySchema);
+export default Activity;

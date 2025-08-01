@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-const ProducerSchema = new Schema({
+const VendorSchema = new Schema({
   name: String,
   status: {
     type: String,
@@ -10,4 +10,5 @@ const ProducerSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("Producer", ProducerSchema);
+const Vendor = mongoose.model("Vendor", VendorSchema);
+export default Vendor;

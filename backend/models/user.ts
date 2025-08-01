@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import passportLocalMongoose from "passport-local-mongoose";
-import Image from "./image";
+import ImageSchema from "./image";
 import { Document, Model, PassportLocalModel, PassportLocalDocument } from 'mongoose';
 
 
@@ -25,7 +25,7 @@ const UserSchema = new Schema({
   moderator: {
     type: Boolean,
   },
-  image: Image,
+  image: ImageSchema,
   following: [
     {
       type: Schema.Types.ObjectId,

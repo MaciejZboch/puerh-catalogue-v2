@@ -1,6 +1,23 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
-import { ImageSchema } from "./image";
+import ImageSchema from "./image";
+import { Document, Model, PassportLocalModel, PassportLocalDocument } from 'mongoose';
+
+/*interface ITea extends Document {
+  name: string,
+  description?: String,
+  images?: [typeof ImageSchema],
+  type: Enumerator,
+  year?: number
+  region?: string,
+  village?: string,
+  ageing_location: string,
+  ageing_conditions: Enumerator,
+  shape: Enumerator,
+  producer: string,
+  vendor: string
+
+}*/
 
 const TeaSchema = new Schema({
   name: String,
@@ -47,7 +64,7 @@ const TeaSchema = new Schema({
 });
 
 //setting price per gram virtual
-TeaSchema.virtual("pricePerGram").get(function () {
+TeaSchema.virtual("pricePerGram").get(function (this: any) {
   return this.price / this.sizeInGrams;
 });
 
