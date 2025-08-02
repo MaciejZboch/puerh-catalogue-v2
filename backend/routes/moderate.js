@@ -1,10 +1,10 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const Vendor = require("../models/vendor");
-const Producer = require("../models/producer");
-const catchAsync = require("../utilities/catchAsync");
+import express from 'express';
+import mongoose from 'mongoose';
+import Vendor from '../models/vendor';
+import Producer from '../models/producer';
+import catchAsync from '../utilities/catchAsync';
 const router = express.Router();
-const { isMod } = require("../middleware");
+import { isMod } from '../middleware';
 
 router.get(
   "/",

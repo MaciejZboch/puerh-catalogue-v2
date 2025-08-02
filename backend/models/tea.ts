@@ -1,23 +1,32 @@
-import mongoose from "mongoose";
-const Schema = mongoose.Schema;
+import {Schema, Types, model} from "mongoose";
 import ImageSchema from "./image";
 import { Document, Model, PassportLocalModel, PassportLocalDocument } from 'mongoose';
 
-/*interface ITea extends Document {
-  name: string,
-  description?: String,
-  images?: [typeof ImageSchema],
-  type: Enumerator,
-  year?: number
-  region?: string,
-  village?: string,
-  ageing_location: string,
-  ageing_conditions: Enumerator,
-  shape: Enumerator,
-  producer: string,
-  vendor: string
+interface IImage extends Document {
+  url: string,
+  filename: String
+}
+interface ITea extends Document {
+  name: string;
+  description: string;
+  images: Types.Array<IImage>;
+  type: 'Raw / Sheng' | 'Ripe / Shu' | 'blend';
+  year: number;
+  region: string;
+  village: string;
+  ageing_location: string;
+  ageing_conditions: 'Dry' | 'Natural' | 'Wet' | 'Hong-Kong Traditional' | 'Unknown';
+  shape: 'Loose' | 'Cake' | 'Tuo' | 'Brick' | 'Mushroom' | 'Dragon ball' | 'Tube' | 'Melon' | 'Other';
+  producer: Types.ObjectId;
+  vendor: Types.ObjectId;
+  author: Types.ObjectId;
+  owners: Types.Array<Types.ObjectId>;
+  sizeInGrams: number;
+  price: number;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
 
-}*/
 
 const TeaSchema = new Schema({
   name: String,
@@ -84,5 +93,5 @@ TeaSchema.index({
 TeaSchema.set("toObject", { virtuals: true });
 TeaSchema.set("toJSON", { virtuals: true });
 
-const Tea = mongoose.model("Tea", TeaSchema);
+const Tea = model("Tea", TeaSchema);
 export default Tea;

@@ -1,8 +1,8 @@
-const express = require("express");
-const { isReviewAuthor, isLoggedIn, validateReview } = require("../middleware");
+import express from 'express';
+import { isReviewAuthor, isLoggedIn, validateReview } from '../middleware';
 const router = express.Router();
-const catchAsync = require("../utilities/catchAsync");
-review = require("../controllers/review");
+import catchAsync  from '../utilities/catchAsync';("../utilities/catchAsync");
+import review from '../controllers/review';
 
 router.post("/:id/review", isLoggedIn, validateReview, catchAsync(review.new));
 

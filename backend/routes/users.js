@@ -1,7 +1,7 @@
-const express = require("express");
+import express from 'express';
 const router = express.Router();
-const catchAsync = require("../utilities/catchAsync");
-const users = require("../controllers/users");
+import catchAsync from '../utilities/catchAsync';
+import users from '../controllers/users';
 const {
   hasNoSpecialSymbols,
   isLoggedIn,

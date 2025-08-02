@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import Tea from "../models/tea";
-function checkTeaLength(req: Request, res: Response, tea) {
-  function isProperLength(t: string, x: number) {
+function checkTeaLength(req: Request, res: Response, tea: typeof Tea) {
+  function isProperLength(t: typeof Tea, x: number) {
     return (t.length > 3 && t.length < x) || !t;
   }
 

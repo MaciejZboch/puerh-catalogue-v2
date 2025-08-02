@@ -1,9 +1,9 @@
-const express = require("express");
+import express from 'express';
 const router = express.Router();
-const catchAsync = require("../utilities/catchAsync");
-const { isLoggedIn, isAuthor, validateTea } = require("../middleware");
-const multer = require("multer");
-const { storage } = require("../cloudinary");
+import catchAsync from '../utilities/catchAsync';
+import { isLoggedIn, isAuthor, validateTea } from '../middleware';
+import multer from 'multer';
+import { storage }  from '../cloudinary';
 const upload = multer({ storage });
 const tea = require("../controllers/tea");
 const { hasNoSpecialSymbols } = require("../middleware");
